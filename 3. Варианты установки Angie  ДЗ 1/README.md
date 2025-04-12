@@ -5,36 +5,41 @@
 1. Используется VMWare Workstation для развёртывания ВМ.
 2. Базовая ОС - Ubuntu 24.04 server minimized
 3. Конфигурация ВМ:
+
    CPU: 4 core
+
    RAM: 4 Gb
+
    DISK: 20 Gb
+
    NET: bridged 10.254.254.124/27
-4. [Написан простой скрипт](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_code.txt) автоматизации установки
-5. ![Результат выполнения скрипта](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.png)
-6. ![В текстовом виде](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.txt)
-7. [Выведен список](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_modules_list.txt) дополнительных модулей
-8. [Установлены](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_modules_console-light_brotli.txt) модули angie-module-console-light и angie-module-brotli
-9. [Отредактирован](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie.conf.txt) файл конфигурации /etc/angie/angie.conf
-10. [Создан файл](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_under_dev.conf.txt) конфигурации сервера в /etc/angie/http.d/under_dev.conf
-11. [Проверена работоспособность](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_test_angie.txt) конфигурации ANGIE
-12. Произведён перезапуск
+   
+5. [Написан простой скрипт](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_code.txt) автоматизации установки
+6. ![Результат выполнения скрипта](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.png)
+7. ![В текстовом виде](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.txt)
+8. [Выведен список](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_modules_list.txt) дополнительных модулей
+9. [Установлены](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_modules_console-light_brotli.txt) модули angie-module-console-light и angie-module-brotli
+10. [Отредактирован](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie.conf.txt) файл конфигурации /etc/angie/angie.conf
+11. [Создан файл](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_under_dev.conf.txt) конфигурации сервера в /etc/angie/http.d/under_dev.conf
+12. [Проверена работоспособность](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_test_angie.txt) конфигурации ANGIE
+13. Произведён перезапуск
     `
     $ systemctl reload angie
     `
-13. и проверка штатной работы Angie
+14. и проверка штатной работы Angie
     `
     $ systemctl status angie
     `
-14. Angie перезагрузил конфигурацию [успешно](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reload_angie.txt)
-15. Т.к. в локальной сети (сетевой интерфейс у ВМ в режиме bridged) уже используется reverse proxy (на базе ANGIE) для доступа к локальным сетевым ресурсам по FQDN - в конфигурации under_dev.conf было настроено ограничение по IP RP
-16. На RP были внесены изменения в конфигурацию, позволяющие осуществить доступ к развернутому учебному стенду ANGIE по FQDN http://angie-oss.study.local/ :
+15. Angie перезагрузил конфигурацию [успешно](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reload_angie.txt)
+16. Т.к. в локальной сети (сетевой интерфейс у ВМ в режиме bridged) уже используется reverse proxy (на базе ANGIE) для доступа к локальным сетевым ресурсам по FQDN - в конфигурации under_dev.conf было настроено ограничение по IP RP
+17. На RP были внесены изменения в конфигурацию, позволяющие осуществить доступ к развернутому учебному стенду ANGIE по FQDN http://angie-oss.study.local/ :
     а) ![Добавлен upstream](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reverse_proxy_upstreams.png)
     б) ![Написан файл конфигурации в /etc/angie/http.d/](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reverse_proxy_config.png)
-17. ![На проверочном хосте сделана запись в HOSTS](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_hosts_config.png)
-18. ![Проверена доступность / через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local.png)
-19. ![Проверена доступность /console через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_console.png)
-20. ![Проверена доступность кастомной страницы 404 через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_test404.png)
-21. Доступность кастомной страницы 404 означает также и доступность страницы 50х
+18. ![На проверочном хосте сделана запись в HOSTS](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_hosts_config.png)
+19. ![Проверена доступность / через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local.png)
+20. ![Проверена доступность /console через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_console.png)
+21. ![Проверена доступность кастомной страницы 404 через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_test404.png)
+22. Доступность кастомной страницы 404 означает также и доступность страницы 50х
 
 **DOCKER**
 
