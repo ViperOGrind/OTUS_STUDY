@@ -33,13 +33,16 @@
 15. Angie перезагрузил конфигурацию [успешно](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reload_angie.txt)
 16. Т.к. в локальной сети (сетевой интерфейс у ВМ в режиме bridged) уже используется reverse proxy (на базе ANGIE) для доступа к локальным сетевым ресурсам по FQDN - в конфигурации under_dev.conf было настроено ограничение по IP RP
 17. На RP были внесены изменения в конфигурацию, позволяющие осуществить доступ к развернутому учебному стенду ANGIE по FQDN http://angie-oss.study.local/ :
+
     а) ![Добавлен upstream](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reverse_proxy_upstreams.png)
+
     б) ![Написан файл конфигурации в /etc/angie/http.d/](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_reverse_proxy_config.png)
-18. ![На проверочном хосте сделана запись в HOSTS](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_hosts_config.png)
-19. ![Проверена доступность / через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local.png)
-20. ![Проверена доступность /console через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_console.png)
-21. ![Проверена доступность кастомной страницы 404 через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_test404.png)
-22. Доступность кастомной страницы 404 означает также и доступность страницы 50х
+    
+19. ![На проверочном хосте сделана запись в HOSTS](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_hosts_config.png)
+20. ![Проверена доступность / через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local.png)
+21. ![Проверена доступность /console через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_console.png)
+22. ![Проверена доступность кастомной страницы 404 через RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie-oss.study.local_test404.png)
+23. Доступность кастомной страницы 404 означает также и доступность страницы 50х
 
 **DOCKER**
 
