@@ -1,0 +1,3 @@
+root@angie-oss:~# angie -t -c /etc/angie/angie.conf
+angie: the configuration file /etc/angie/angie.conf syntax is ok
+angie: configuration file /etc/angie/angie.conf test is successful
