@@ -1,0 +1,22 @@
+root@angie-oss:~# systemctl status angie
+● angie.service - Angie - high performance web server
+     Loaded: loaded (/usr/lib/systemd/system/angie.service; enabled; preset: enabled)
+     Active: active (running) since Sat 2025-04-12 18:45:38 MSK; 9min ago
+       Docs: https://en.angie.software/angie/docs/
+    Process: 809 ExecStart=/usr/sbin/angie -c /etc/angie/angie.conf (code=exited, status=0/SUCCESS)
+    Process: 1312 ExecReload=/bin/sh -c /bin/kill -s HUP $(/bin/cat /run/angie.pid) (code=exited, status=0/SUCCESS)
+   Main PID: 836 (angie)
+      Tasks: 5 (limit: 4552)
+     Memory: 116.2M (peak: 165.5M)
+        CPU: 2.223s
+     CGroup: /system.slice/angie.service
+             ├─ 836 "angie: master process v1.9.0 #2 [/usr/sbin/angie -c /etc/angie/angie.conf]"
+             ├─1316 "angie: worker process #2"
+             ├─1317 "angie: worker process #2"
+             ├─1318 "angie: worker process #2"
+             └─1319 "angie: worker process #2"
+
+Apr 12 18:45:38 angie-oss systemd[1]: Starting angie.service - Angie - high performance web server...
+Apr 12 18:45:38 angie-oss systemd[1]: Started angie.service - Angie - high performance web server.
+Apr 12 18:54:51 angie-oss systemd[1]: Reloading angie.service - Angie - high performance web server...
+Apr 12 18:54:51 angie-oss systemd[1]: Reloaded angie.service - Angie - high performance web server.
