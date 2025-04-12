@@ -1,0 +1,260 @@
+root@angie-oss:~# apt search angie-
+Sorting... Done
+Full Text Search... Done
+angie-console-light/noble 1.7.2-1~noble all
+  Console Light for Angie
+
+angie-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie
+
+angie-module-auth-jwt/noble 1.9.0-1~noble amd64
+  Angie auth-jwt dynamic module
+
+angie-module-auth-jwt-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-auth-jwt
+
+angie-module-auth-ldap/noble 1.9.0-1~noble amd64
+  Angie auth-ldap dynamic module
+
+angie-module-auth-ldap-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-auth-ldap
+
+angie-module-auth-pam/noble 1.9.0-1~noble amd64
+  Angie auth-pam dynamic module
+
+angie-module-auth-pam-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-auth-pam
+
+angie-module-auth-spnego/noble 1.9.0-1~noble amd64
+  Angie auth-spnego dynamic module
+
+angie-module-auth-spnego-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-auth-spnego
+
+angie-module-brotli/noble 1.9.0-1~noble amd64
+  Angie Brotli dynamic module
+
+angie-module-brotli-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-brotli
+
+angie-module-cache-purge/noble 1.9.0-1~noble amd64
+  Angie cache-purge dynamic module
+
+angie-module-cache-purge-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-cache-purge
+
+angie-module-cgi/noble 1.9.0-1~noble amd64
+  Angie cgi dynamic module
+
+angie-module-cgi-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-cgi
+
+angie-module-dav-ext/noble 1.9.0-1~noble amd64
+  Angie dav-ext dynamic module
+
+angie-module-dav-ext-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-dav-ext
+
+angie-module-dynamic-limit-req/noble 1.9.0-1~noble amd64
+  Angie dynamic-limit-req dynamic module
+
+angie-module-dynamic-limit-req-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-dynamic-limit-req
+
+angie-module-echo/noble 1.9.0-1~noble amd64
+  Angie echo dynamic module
+
+angie-module-echo-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-echo
+
+angie-module-enhanced-memcached/noble 1.9.0-1~noble amd64
+  Angie enhanced-memcached dynamic module
+
+angie-module-enhanced-memcached-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-enhanced-memcached
+
+angie-module-eval/noble 1.9.0-1~noble amd64
+  Angie eval dynamic module
+
+angie-module-eval-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-eval
+
+angie-module-geoip2/noble 1.9.0-1~noble amd64
+  Angie GeoIP2 dynamic module
+
+angie-module-geoip2-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-geoip2
+
+angie-module-headers-more/noble 1.9.0-1~noble amd64
+  Angie headers-more dynamic module
+
+angie-module-headers-more-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-headers-more
+
+angie-module-http-auth-radius/noble 1.9.0-1~noble amd64
+  Angie http-auth-radius dynamic module
+
+angie-module-http-auth-radius-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-http-auth-radius
+
+angie-module-image-filter/noble 1.9.0-1~noble amd64
+  Angie image-filter dynamic module
+
+angie-module-image-filter-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-image-filter
+
+angie-module-jwt/noble 1.9.0-1~noble amd64
+  Angie JWT dynamic module
+
+angie-module-jwt-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-jwt
+
+angie-module-keyval/noble 1.9.0-1~noble amd64
+  Angie keyval dynamic module
+
+angie-module-keyval-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-keyval
+
+angie-module-lua/noble 1.9.0-1~noble amd64
+  Angie Lua dynamic module
+
+angie-module-lua-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-lua
+
+angie-module-modsecurity/noble 1.9.0-1~noble amd64
+  Angie modsecurity dynamic module
+
+angie-module-modsecurity-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-modsecurity
+
+angie-module-ndk/noble 1.9.0-1~noble amd64
+  Angie NDK dynamic module
+
+angie-module-ndk-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-ndk
+
+angie-module-njs/noble 1.9.0-1~noble amd64
+  Angie NJS dynamic module
+
+angie-module-njs-cli/noble 1.9.0-1~noble amd64
+  Angie NJS CLI dynamic module
+
+angie-module-njs-cli-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-njs-cli
+
+angie-module-njs-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-njs
+
+angie-module-opentracing/noble 1.9.0-1~noble amd64
+  Angie OpenTracing dynamic module
+
+angie-module-opentracing-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-opentracing
+
+angie-module-otel/noble 1.9.0-1~noble amd64
+  Angie OpenTelemetry dynamic module
+
+angie-module-otel-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-otel
+
+angie-module-perl/noble 1.9.0-1~noble amd64
+  Angie Perl dynamic module
+
+angie-module-perl-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-perl
+
+angie-module-postgres/noble 1.9.0-1~noble amd64
+  Angie PostgreSQL dynamic module
+
+angie-module-postgres-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-postgres
+
+angie-module-redis2/noble 1.9.0-1~noble amd64
+  Angie Redis 2 dynamic module
+
+angie-module-redis2-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-redis2
+
+angie-module-rtmp/noble 1.9.0-1~noble amd64
+  Angie RTMP dynamic module
+
+angie-module-rtmp-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-rtmp
+
+angie-module-set-misc/noble 1.9.0-1~noble amd64
+  Angie set-misc dynamic module
+
+angie-module-set-misc-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-set-misc
+
+angie-module-subs/noble 1.9.0-1~noble amd64
+  Angie substitutions dynamic module
+
+angie-module-subs-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-subs
+
+angie-module-testcookie/noble 1.9.0-1~noble amd64
+  Angie testcookie dynamic module
+
+angie-module-testcookie-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-testcookie
+
+angie-module-unbrotli/noble 1.9.0-1~noble amd64
+  Angie Unbrotli dynamic module
+
+angie-module-unbrotli-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-unbrotli
+
+angie-module-upload/noble 1.9.0-1~noble amd64
+  Angie upload dynamic module
+
+angie-module-upload-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-upload
+
+angie-module-vod/noble 1.9.0-1~noble amd64
+  Angie VOD dynamic module
+
+angie-module-vod-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-vod
+
+angie-module-vts/noble 1.9.0-1~noble amd64
+  Angie vts dynamic module
+
+angie-module-vts-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-vts
+
+angie-module-wamr/noble 1.9.0-1~noble amd64
+  WAMR run-time for Angie Wasm dynamic module
+
+angie-module-wamr-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-wamr
+
+angie-module-wasm/noble 1.9.0-1~noble amd64
+  Angie Webasm dynamic module
+
+angie-module-wasm-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-wasm
+
+angie-module-wasmtime/noble 1.9.0-1~noble amd64
+  Wasmtime run-time for Angie Wasm dynamic module
+
+angie-module-wasmtime-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-wasmtime
+
+angie-module-xslt/noble 1.9.0-1~noble amd64
+  Angie XSLT dynamic module
+
+angie-module-xslt-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-xslt
+
+angie-module-zip/noble 1.9.0-1~noble amd64
+  Angie ZIP dynamic module
+
+angie-module-zip-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-zip
+
+angie-module-zstd/noble 1.9.0-1~noble amd64
+  Angie module for the Zstandard compression
+
+angie-module-zstd-dbgsym/noble 1.9.0-1~noble amd64
+  debug symbols for angie-module-zstd

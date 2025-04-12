@@ -1,0 +1,70 @@
+root@angie-oss:~# ./angie_install.sh
+Hit:1 https://download.angie.software/angie/ubuntu/24.04 noble InRelease
+Hit:2 https://mirror.yandex.ru/ubuntu noble InRelease
+Hit:3 https://mirror.yandex.ru/ubuntu noble-updates InRelease
+Hit:4 https://mirror.yandex.ru/ubuntu noble-backports InRelease
+Hit:5 https://mirror.yandex.ru/ubuntu noble-security InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+ca-certificates is already the newest version (20240203).
+curl is already the newest version (8.5.0-2ubuntu10.6).
+0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  4491  100  4491    0     0  72292      0 --:--:-- --:--:-- --:--:-- 73622
+Hit:1 https://mirror.yandex.ru/ubuntu noble InRelease
+Hit:2 https://mirror.yandex.ru/ubuntu noble-updates InRelease
+Hit:3 https://mirror.yandex.ru/ubuntu noble-backports InRelease
+Hit:4 https://mirror.yandex.ru/ubuntu noble-security InRelease
+Hit:5 https://download.angie.software/angie/ubuntu/24.04 noble InRelease
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+1 package can be upgraded. Run 'apt list --upgradable' to see it.
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  angie
+0 upgraded, 1 newly installed, 0 to remove and 1 not upgraded.
+Need to get 1120 kB of archives.
+After this operation, 4028 kB of additional disk space will be used.
+Get:1 https://download.angie.software/angie/ubuntu/24.04 noble/main amd64 angie amd64 1.9.0-1~noble [1120 kB]
+Fetched 1120 kB in 0s (5390 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package angie.
+(Reading database ... 73162 files and directories currently installed.)
+Preparing to unpack .../angie_1.9.0-1~noble_amd64.deb ...
+Unpacking angie (1.9.0-1~noble) ...
+Setting up angie (1.9.0-1~noble) ...
+----------------------------------------------------------------------
+
+Thanks for using Angie!
+
+Please find the official documentation for Angie here:
+* https://en.angie.software/angie/docs/
+
+----------------------------------------------------------------------
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.

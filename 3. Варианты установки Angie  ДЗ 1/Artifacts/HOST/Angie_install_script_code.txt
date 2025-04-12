@@ -1,0 +1,9 @@
+root@angie-oss:~# cat ./angie_install.sh
+#!/bin/bash
+
+apt update
+apt install -y ca-certificates curl
+sudo curl -o /etc/apt/trusted.gpg.d/angie-signing.gpg https://angie.software/keys/angie-signing.gpg
+echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null
+apt update
+apt install angie -y

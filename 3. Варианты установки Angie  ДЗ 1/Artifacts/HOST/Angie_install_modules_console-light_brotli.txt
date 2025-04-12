@@ -1,0 +1,90 @@
+root@angie-oss:~# apt install angie-console-light angie-module-brotli
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  angie-console-light angie-module-brotli
+0 upgraded, 2 newly installed, 0 to remove and 1 not upgraded.
+Need to get 890 kB of archives.
+After this operation, 3545 kB of additional disk space will be used.
+Get:1 https://download.angie.software/angie/ubuntu/24.04 noble/main amd64 angie-console-light all 1.7.2-1~noble [876 kB]
+Get:2 https://download.angie.software/angie/ubuntu/24.04 noble/main amd64 angie-module-brotli amd64 1.9.0-1~noble [13.4 kB]
+Fetched 890 kB in 0s (4530 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package angie-console-light.
+(Reading database ... 73181 files and directories currently installed.)
+Preparing to unpack .../angie-console-light_1.7.2-1~noble_all.deb ...
+----------------------------------------------------------------------
+
+Console Light for Angie has been installed.
+To enable this functionality, add the following snippet to Angie
+configuration:
+
+    location /console/ {
+        # define list of trusted hosts or networks
+        # allow 127.0.0.1;
+        # allow 192.168.0.0/16;
+        # allow 10.0.0.0/8;
+        deny all;
+
+        auto_redirect on;
+
+        alias /usr/share/angie-console-light/html/;
+        index index.html;
+
+        location /console/api/ {
+            api /status/;
+        }
+
+        # uncomment below lines to enable writable API
+        # location /console/api/config/ {
+        #     api /config/;
+        # }
+    }
+
+Don't forget to apply these changes as:
+
+    $ sudo angie -t && sudo service angie reload
+
+For further details please refer to the following page:
+https://en.angie.software/angie/docs/configuration/monitoring/
+
+----------------------------------------------------------------------
+Unpacking angie-console-light (1.7.2-1~noble) ...
+Selecting previously unselected package angie-module-brotli.
+Preparing to unpack .../angie-module-brotli_1.9.0-1~noble_amd64.deb ...
+Unpacking angie-module-brotli (1.9.0-1~noble) ...
+Setting up angie-console-light (1.7.2-1~noble) ...
+Setting up angie-module-brotli (1.9.0-1~noble) ...
+----------------------------------------------------------------------
+
+The Brotli dynamic module for Angie has been installed.
+To enable this module, add the following to /etc/angie/angie.conf
+and reload angie:
+
+    load_module modules/ngx_http_brotli_filter_module.so;
+or:
+    load_module modules/ngx_http_brotli_static_module.so;
+
+Please refer to the module documentation for further details:
+https://github.com/google/ngx_brotli
+
+----------------------------------------------------------------------
+Scanning processes...
+Scanning candidates...
+Scanning linux images...
+
+Running kernel seems to be up-to-date.
+
+Restarting services...
+
+Service restarts being deferred:
+ /etc/needrestart/restart.d/dbus.service
+ systemctl restart systemd-logind.service
+ systemctl restart unattended-upgrades.service
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.

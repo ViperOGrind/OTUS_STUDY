@@ -1,0 +1,45 @@
+server {
+  listen 80;
+  server_name "";
+  return 444;
+}
+
+server {
+  listen 80 default_server;
+  server_name angie-oss.study.local www.angie-oss.study.local;
+
+  allow 127.0.0.1;
+  allow 10.254.254.126;
+  deny all;
+
+  root /home/angie/www/html/;
+  index index.html index.htm index.php;
+
+  access_log /var/log/angie/access.log main;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  error_page 404 /404.html;
+  location /404.html {
+    root /home/angie/www/html/404;
+  }
+
+  error_page 500 502 503 504 /50x.html;
+  location /50x.html {
+    root /home/angie/www/html/50x;
+  }
+
+  location /console/ {
+
+    auto_redirect on;
+
+    alias /usr/share/angie-console-light/html/;
+    index index.html;
+
+    location /console/api/ {
+      api /status/;
+    }
+  }
+}
