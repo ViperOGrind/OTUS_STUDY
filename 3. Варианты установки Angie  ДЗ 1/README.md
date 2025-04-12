@@ -16,7 +16,7 @@
    
 5. [Написан простой скрипт](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_code.txt) автоматизации установки
 6. ![Результат выполнения скрипта](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.png)
-7. ![В текстовом виде](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.txt)
+7. [В текстовом виде](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_script_result.txt)
 8. [Выведен список](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_modules_list.txt) дополнительных модулей
 9. [Установлены](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_install_modules_console-light_brotli.txt) модули angie-module-console-light и angie-module-brotli
 10. [Отредактирован](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/HOST/Angie_artifacts_angie.conf.txt) файл конфигурации /etc/angie/angie.conf
