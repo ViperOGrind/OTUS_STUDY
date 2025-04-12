@@ -1,0 +1,16 @@
+server {
+
+  listen 10.254.254.126:80;
+  server_name angie-docker.study.local;
+
+  location / {
+    proxy_set_header Host $host;
+    proxy_pass http://angie-docker.study.local$request_uri;
+  }
+
+  location /console/ {
+    proxy_set_header Host $host;
+    proxy_pass http://angie-docker.study.local$request_uri;
+  }
+
+}

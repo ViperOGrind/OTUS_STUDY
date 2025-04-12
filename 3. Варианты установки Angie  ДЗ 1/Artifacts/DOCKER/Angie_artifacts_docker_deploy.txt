@@ -1,0 +1,1 @@
+docker run --name angie-docker -v /home/angie/www/html:/usr/share/angie/html:ro -v /home/angie/conf/angie.conf:/etc/angie/angie.conf:ro -v /home/angie/conf/http.d:/etc/angie/http.d:ro -p 8080:80 -p 8443:443 -d docker.angie.software/angie:latest
