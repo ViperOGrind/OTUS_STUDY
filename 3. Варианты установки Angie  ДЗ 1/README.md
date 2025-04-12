@@ -86,7 +86,7 @@
    ```
 
 2. [Для корректного проброса конфигураций, была создана директория /home/angie/conf с файлом angie.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/DOCKER/Angie_artifacts_docker_angie.conf.txt)
-3. [Для того. чтобы не писать конфигурационные файлы под страничку-заглушку внутри контейнера, была также создана папка /home/angie/conf/http.d в которой был создан файл конфигурации test.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/DOCKER/Angie_artifacts_docker_test.conf.txt)
+3. [Для того, чтобы не писать конфигурационные файлы под страничку-заглушку внутри контейнера, была также создана папка /home/angie/conf/http.d в которой был создан файл конфигурации test.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/DOCKER/Angie_artifacts_docker_test.conf.txt)
 4. [Для установки ANGIE в контейнере, выноса за пределы контейнера файла с конфигурациями и проброса портов (8080 на 80 и 8443 на 443) использовалась следующая команда](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/3.%20Варианты%20установки%20Angie%20%20ДЗ%201/Artifacts/DOCKER/Angie_artifacts_docker_deploy.txt)
 5. Результат выполнения команды - запущен контейнер с ANGIE
 
