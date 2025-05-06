@@ -1,1 +1,40 @@
+**Результаты выполнения ДЗ №2.**
+Миграция с NGINX на ANGIE
 
+**HOST**
+1. Используется VMWare Workstation для развёртывания ВМ.
+2. Базовая ОС - Ubuntu 24.04 server minimized
+3. Конфигурация ВМ:
+
+   ```
+   CPU: 4 core
+
+   RAM: 4 Gb
+
+   DISK: 20 Gb
+
+   NET: bridged 10.254.254.125/27
+   ```
+   
+5. Произведена установка NGINX Stable актуальной версии (1.28.0) и ANGIE 1.9.0
+   ```
+   sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
+   curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
+   gpg --dry-run --quiet --no-keyring --import --import-options import-show /usr/share/keyrings/nginx-archive-keyring.gpg
+   echo "deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/debian `lsb_release -cs` nginx" | sudo tee /etc/apt/sources.list.d/nginx.list
+   echo -e "Package: *\nPin: origin nginx.org\nPin: release o=nginx\nPin-Priority: 900\n" | sudo tee /etc/apt/preferences.d/99nginx
+   sudo apt update
+   sudo apt install nginx
+   nginx -v
+   ```
+   [NGINX version]()
+6. На сервер залит конфиг из ДЗ.
+   [Server NGINX config 1]()
+
+7. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
+   в конфигурационном файле были закомментированы строки с подгрузкой модуля BROTLI и соответствующие директивы (при миграции конфигурации, данный модуль был учтён и установлен для ANGIE).
+   [NGINX.conf brotli commented out 1]()
+   [NGINX.conf brotli commented out 2]()
+   
+9. Для упрощения миграции конфигурации файлы конфигурации (nginx.conf и angie.conf) были перенесены в отдельную директорию и сравнены с помощью diff.
+   [Move nginx.conf & angie.conf]()
