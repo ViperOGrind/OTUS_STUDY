@@ -17,6 +17,8 @@
    ```
    
 5. Произведена установка NGINX Stable актуальной версии (1.28.0) и ANGIE 1.9.0
+
+   **NGINX**
    ```
    sudo apt install curl gnupg2 ca-certificates lsb-release debian-archive-keyring
    curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null
@@ -28,10 +30,19 @@
    nginx -v
    ```
    [NGINX version]()
-6. На сервер залит конфиг из ДЗ.
+
+   **ANGIE**
+   ```
+   apt-get install -y ca-certificates curl
+   sudo curl -o /etc/apt/trusted.gpg.d/angie-signing.gpg https://angie.software/keys/angie-signing.gpg
+   echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null
+   ```
+   [ANGIE version]()
+   
+7. На сервер залит конфиг из ДЗ.
    [Server NGINX config 1]()
 
-7. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
+8. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
    в конфигурационном файле были закомментированы строки с подгрузкой модуля BROTLI и соответствующие директивы (при миграции конфигурации, данный модуль был учтён и установлен для ANGIE).
    [NGINX.conf brotli commented out 1]()
    [NGINX.conf brotli commented out 2]()
