@@ -104,6 +104,8 @@
     ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fastcgi2.png)
     
     ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fastcgi1.png)
+
+    ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_ANGIE_transfer_files.png)
     
 13. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
     ANGIE.
@@ -140,8 +142,12 @@
     ```
 
     ![ANGIE serving 80](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_80_serving.png)
+
+    Отключаем автозагрузку NGINX и включаем ANGIE.
+
+    ![ANGIE serving 80](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/Switch_NGINX_to_ANGIE_final.png)
     
-19. Дополнительно мониторим работу опубликованных веб-ресурсов. Помним, что браузер закэшировал страницу и необходимо очистить кэш, чтобы она корректно подгрузилась.
+20. Дополнительно мониторим работу опубликованных веб-ресурсов. Помним, что браузер закэшировал страницу и необходимо очистить кэш, чтобы она корректно подгрузилась.
 
     ![ANGIE stoped serving 8080](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_8080_not_responding.png)
 
