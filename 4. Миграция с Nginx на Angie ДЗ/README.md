@@ -53,7 +53,13 @@
 
    ![Server NGINX config5](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf5.png)
 
-   В конфиге настроено проксирование на 127.0.0.1:\[9000-90003\], чтобы сервер при запуске отдал index.html, необходимо в конфиге закомментировать строку proxy_pass "http:\/\/backend;"
+   Предварительно делаем полный бэкап директории /etc/angie
+
+   ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fullbackup.png)
+
+   Приступаем к переносу файлов и каталогов
+
+   В конфиге nginx.conf настроено проксирование на 127.0.0.1:\[9000-90003\], чтобы сервер при запуске отдал index.html, необходимо закомментировать строку proxy_pass "http:\/\/backend;"
    и раскомментировать "try_files $uri $uri/ =404;" т.к. порты 9000-9003 не слушаются.
 
    ![Server NGINX respond](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_conf_serve_index.html.png)
@@ -86,12 +92,6 @@
     
 9. Копируем из каталога /etc/nginx/ каталоги и файлы в /etc/angie/, если в целевом каталоге копируемый файл или каталог уже присутствует, сравниваем и оставляем тот, который необходим и достаточен для штатной
     работы ANGIE и опубликованных веб-ресурсов.
-
-    Предварительно делаем полный бэкап директории /etc/angie
-
-    ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fullbackup.png)
-
-    Приступаем к переносу файлов и каталогов
 
     ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_mime.types.png)
 
