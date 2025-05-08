@@ -29,7 +29,7 @@
    sudo apt install nginx
    nginx -v
    ```
-   [NGINX version]()
+   [NGINX version](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_v.png)
 
    **ANGIE**
    ```
@@ -39,42 +39,71 @@
    sudo apt update && sudo apt install angie -y
    angie -v
    ```
-   [ANGIE version]()
+   [ANGIE version](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_v.png)
    
 5. На сервер залит конфиг из ДЗ.
     
-   [Server NGINX config]()
+   [Server NGINX config1](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf1.png)
 
-6. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
+   [Server NGINX config2](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf2.png)
+
+   [Server NGINX config3](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf3.png)
+
+   [Server NGINX config4](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf4.png)
+
+   [Server NGINX config5](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf5.png)
+
+   В конфиге настроено проксирование на 127.0.0.1:\[9000-90003\], чтобы сервер при запуске отдал index.html, необходимо в конфиге закомментировать строку proxy_pass http://backend;
+   и раскомментировать try_files $uri $uri/ =404; т.к. порты 9000-9003 не слушаются.
+
+   [Server NGINX respond]()
+
+   [Server NGINX respond](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_test_web.png)
+
+7. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
    в конфигурационном файле были закомментированы строки с подгрузкой модуля BROTLI и соответствующие директивы (при миграции конфигурации, данный модуль был учтён и установлен для ANGIE).
    
-   [NGINX.conf brotli commented out 1]()
+   [NGINX.conf brotli commented out 1](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_conf_brotli1.png)
    
-   [NGINX.conf brotli commented out 2]()
+   [NGINX.conf brotli commented out 2](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_conf_brotli2.png)
    
 8. Для упрощения миграции конфигурации файлы конфигурации (nginx.conf и angie.conf) были перенесены в отдельную директорию и сравнены с помощью diff.
     
-    [Move nginx.conf & angie.conf]()
+    [Move nginx.conf & angie.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf.png)
+
+   [Diff nginx.conf & angie.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_diff.txt)
    
-9. Открываем конфиги на редактирование в vimdiff и, сравнивая значения в директивах, переносим необходимые из конфига nginx.conf в angie.conf. Отсутствующие директивы и блоки также переносим, предварительно
+10. Открываем конфиги на редактирование в vimdiff и, сравнивая значения в директивах, переносим необходимые из конфига nginx.conf в angie.conf. Отсутствующие директивы и блоки также переносим, предварительно
     сверившись с документацией angie и убедившись в том, что переносимые директивы поддерживаются.
     
-    [VIMDIFF NGINX/ANGIE]()
+    [VIMDIFF NGINX/ANGIE](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_vimdiff.png)
     
-10. Копируем из каталога /etc/nginx/ каталоги и файлы в /etc/angie/, если в целевом каталоге копируемый файл или каталог уже присутствует, сравниваем и оставляем тот, который необходим и достаточен для штатной
+11. Копируем из каталога /etc/nginx/ каталоги и файлы в /etc/angie/, если в целевом каталоге копируемый файл или каталог уже присутствует, сравниваем и оставляем тот, который необходим и достаточен для штатной
     работы ANGIE и опубликованных веб-ресурсов.
 
-    [MOVING NGINX contents to ANGIE dir1]()
+    Предварительно делаем полный бэкап директории /etc/angie
 
-    [MOVING NGINX contents to ANGIE dir2]()
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fullbackup.png)
 
-    [MOVING NGINX contents to ANGIE dir3]()
+    Приступаем к переносу файлов и каталогов
 
-    [MOVING NGINX contents to ANGIE dir4]()
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_mime.types.png)
+
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_mime.types_diff.png)
+
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_cp_mime.types.png)
+
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_snippets.png)
+
+    Т.к. директория /etc/nginx/modules-enabled отсутствует, то можно в конфигурационном файле ANGIE её закомментировать. Но для обратной совместимости этого не делаем - отсутствующие директории ANGIE проигнорирует.
+
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_modules-ena.png)
+
+    [MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_sites-ena.png)
     
-    [MOVING NGINX contents to ANGIE dir5]()
+    [MOVING NGINX contents to ANGIE dir]()
     
-12. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
+13. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
     ANGIE.
     
     [NGINX modules list]()
@@ -83,16 +112,16 @@
     
     [Install ANGIE modules]()
     
-13. Производим предварительную проверку работоспособности ANGIE с полученной конфигурацией.
+14. Производим предварительную проверку работоспособности ANGIE с полученной конфигурацией.
     
     [New ANGIE.CONF syntax check]()
     
-14. Устраняем выявленные ошибки, если их нет - временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
+15. Устраняем выявленные ошибки, если их нет - временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
     
     [ANGIE check config and published web resources]()
     
-15. После подтверждения штатной работы ANGIE и опубликованных веб-ресурсов, меняем порт в конфигурации ANGIE, выключаем NGINX и запускаем ANGIE одной командой.
+16. После подтверждения штатной работы ANGIE и опубликованных веб-ресурсов, меняем порт в конфигурации ANGIE, выключаем NGINX и запускаем ANGIE одной командой.
     
     [ANGIE replace NGINX]()
     
-16. Дополнительно мониторим работу опубликованных веб-ресурсов.
+17. Дополнительно мониторим работу опубликованных веб-ресурсов.
