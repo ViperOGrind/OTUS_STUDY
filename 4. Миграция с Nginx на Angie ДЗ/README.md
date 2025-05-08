@@ -36,16 +36,37 @@
    apt-get install -y ca-certificates curl
    sudo curl -o /etc/apt/trusted.gpg.d/angie-signing.gpg https://angie.software/keys/angie-signing.gpg
    echo "deb https://download.angie.software/angie/$(. /etc/os-release && echo "$ID/$VERSION_ID $VERSION_CODENAME") main" | sudo tee /etc/apt/sources.list.d/angie.list > /dev/null
+   sudo apt update && sudo apt install angie -y
+   angie -v
    ```
    [ANGIE version]()
    
 7. На сервер залит конфиг из ДЗ.
-   [Server NGINX config 1]()
+8. 
+   [Server NGINX config]()
 
-8. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
+9. Т.к. модуль BROTLI в NGINX устанавливается из официальных репозиториев только в платной версии, а OSS версию NGINX необходимо компилировать из исходного кода вручную, для запуска NGINX OSS на сервере,
    в конфигурационном файле были закомментированы строки с подгрузкой модуля BROTLI и соответствующие директивы (при миграции конфигурации, данный модуль был учтён и установлен для ANGIE).
    [NGINX.conf brotli commented out 1]()
    [NGINX.conf brotli commented out 2]()
    
-9. Для упрощения миграции конфигурации файлы конфигурации (nginx.conf и angie.conf) были перенесены в отдельную директорию и сравнены с помощью diff.
+10. Для упрощения миграции конфигурации файлы конфигурации (nginx.conf и angie.conf) были перенесены в отдельную директорию и сравнены с помощью diff.
    [Move nginx.conf & angie.conf]()
+11. Открываем конфиги на редактирование в vimdiff и, сравнивая значения в директивах, переносим необходимые из конфига nginx.conf в angie.conf. Отсутствующие директивы и блоки также переносим, предварительно
+    сверившись с документацией angie и убедившись в том, что переносимые директивы поддерживаются.
+    [VIMDIFF NGINX/ANGIE]()
+12. Копируем из каталога /etc/nginx/ каталоги и файлы в /etc/angie/, если в целевом каталоге копируемый файл или каталог уже присутствует, сравниваем и оставляем тот, который необходим и достаточен для штатной
+    работы ANGIE.
+    [MOVING NGINX contents to ANGIE dir]()
+13. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
+    ANGIE.
+    [NGINX modules list]()
+    [Search ANGIE repository for analog modules]()
+    [Install ANGIE modules]()
+16. Производим предварительную проверку работоспособности ANGIE с полученной конфигурацией.
+    [New ANGIE.CONF syntax check]()
+17. Устраняем выявленные ошибки, если их нет - временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
+    [ANGIE check config and published web resources]()
+18. После подтверждения штатной работы ANGIE и опубликованных веб-ресурсов, меняем порт в конфигурации ANGIE, выключаем NGINX и запускаем ANGIE одной командой.
+    [ANGIE replace NGINX]()
+19. Дополнительно мониторим работу опубликованных веб-ресурсов.
