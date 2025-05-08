@@ -56,7 +56,7 @@
    В конфиге настроено проксирование на 127.0.0.1:\[9000-90003\], чтобы сервер при запуске отдал index.html, необходимо в конфиге закомментировать строку proxy_pass "http:\/\/backend;"
    и раскомментировать "try_files $uri $uri/ =404;" т.к. порты 9000-9003 не слушаются.
 
-   ![Server NGINX respond]()
+   ![Server NGINX respond](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_conf_serve_index.html.png)
 
    ![Server NGINX respond](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_test_web.png)
 
@@ -100,28 +100,49 @@
     ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_modules-ena.png)
 
     ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_sites-ena.png)
+
+    ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fastcgi2.png)
     
-    ![MOVING NGINX contents to ANGIE dir]()
+    ![MOVING NGINX contents to ANGIE dir](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_fastcgi1.png)
     
 13. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
     ANGIE.
     
-    ![NGINX modules list]()
+    ![ANGIE modules list](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_module-brotli.png)
     
-    ![Search ANGIE repository for analog modules]()
+    ![ANGIE brotli installed](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_module-brotli_installed.png)
     
-    ![Install ANGIE modules]()
+    ![ANGIE brotli start success](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_module-brotli_launch_success.png)
     
 14. Производим предварительную проверку работоспособности ANGIE с полученной конфигурацией.
     
-    ![New ANGIE.CONF syntax check]()
+    ![New ANGIE.CONF syntax check](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_test_error.png)
+
+    ![New ANGIE.CONF syntax error](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_test_error_typo.png)
+
+    ![New ANGIE.CONF syntax success](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_test_success.png)
+
+    ![New ANGIE.CONF syntax success](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_launch_success.png)
     
-15. Устраняем выявленные ошибки, если их нет - временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
+16. Устраняем выявленные ошибки, если их нет - временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
     
-    ![ANGIE check config and published web resources]()
+    ![ANGIE check config and published web resources](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_port_change_for_test.png)
+
+    ![ANGIE check config and published web resources](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_test_web.png)
     
-16. После подтверждения штатной работы ANGIE и опубликованных веб-ресурсов, меняем порт в конфигурации ANGIE, выключаем NGINX и запускаем ANGIE одной командой.
+18. После подтверждения штатной работы ANGIE и опубликованных веб-ресурсов, меняем порт в конфигурации ANGIE, выключаем NGINX и запускаем ANGIE одной командой.
     
-    ![ANGIE replace NGINX]()
+    ![ANGIE replace NGINX](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/Switch_NGINX_to_ANGIE.png)
+
+    ```
+    systemctl stop nginx && systemctl start angie
+    systemctl status nginx angie
+    ```
+
+    ![ANGIE serving 80](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_80_serving.png)
     
-17. Дополнительно мониторим работу опубликованных веб-ресурсов.
+19. Дополнительно мониторим работу опубликованных веб-ресурсов. Помним, что браузер закэшировал страницу и необходимо очистить кэш, чтобы она корректно подгрузилась.
+
+    ![ANGIE stoped serving 8080](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_8080_not_responding.png)
+
+    ![ANGIE serving 80](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_80_serving.png)
