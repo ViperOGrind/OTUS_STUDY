@@ -62,11 +62,19 @@
     [VIMDIFF NGINX/ANGIE]()
     
 10. Копируем из каталога /etc/nginx/ каталоги и файлы в /etc/angie/, если в целевом каталоге копируемый файл или каталог уже присутствует, сравниваем и оставляем тот, который необходим и достаточен для штатной
-    работы ANGIE.
+    работы ANGIE и опубликованных веб-ресурсов.
 
-    [MOVING NGINX contents to ANGIE dir]()
+    [MOVING NGINX contents to ANGIE dir1]()
+
+    [MOVING NGINX contents to ANGIE dir2]()
+
+    [MOVING NGINX contents to ANGIE dir3]()
+
+    [MOVING NGINX contents to ANGIE dir4]()
     
-11. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
+    [MOVING NGINX contents to ANGIE dir5]()
+    
+12. Проверяем наличие и устанавливаем необходимые модули в ANGIE. Помним, что в учебном конфиге были закомментированы строки относящиеся к модулю brotli. Устанавливаем модуль angie-module-brotli из репозитория
     ANGIE.
     
     [NGINX modules list]()
