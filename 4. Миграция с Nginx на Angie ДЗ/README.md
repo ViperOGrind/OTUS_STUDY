@@ -53,8 +53,8 @@
 
    ![Server NGINX config5](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/NGINX_study_conf5.png)
 
-   В конфиге настроено проксирование на 127.0.0.1:\[9000-90003\], чтобы сервер при запуске отдал index.html, необходимо в конфиге закомментировать строку proxy_pass http://backend;
-   и раскомментировать try_files $uri $uri/ =404; т.к. порты 9000-9003 не слушаются.
+   В конфиге настроено проксирование на 127.0.0.1:\[9000-90003\], чтобы сервер при запуске отдал index.html, необходимо в конфиге закомментировать строку proxy_pass "http:\/\/backend;"
+   и раскомментировать "try_files $uri $uri/ =404;" т.к. порты 9000-9003 не слушаются.
 
    ![Server NGINX respond]()
 
