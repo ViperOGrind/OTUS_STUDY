@@ -49,6 +49,8 @@ ANGIE как веб-сервер
 
     ![404](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/5.%20Angie%20как%20веб-сервер/Artifacts/test5.study.local_error_page.png)
 
-11. Отключаем отдачу версии ANGIE.
+    ![404](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/5.%20Angie%20как%20веб-сервер/Artifacts/test5.study.local_error_page2.png)
+
+12. Отключаем отдачу версии ANGIE.
 
     ![SERVER TOKENS OFF](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/5.%20Angie%20как%20веб-сервер/Artifacts/test5.study.local_root_server_tokens_off.png)
