@@ -71,7 +71,7 @@
     
    ![Move nginx.conf & angie.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf.png)
 
-   ![Diff nginx.conf & angie.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_diff.txt)
+   [Diff nginx.conf & angie.conf](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/nginx.conf-angie.conf_diff.txt)
    
 10. Открываем конфиги на редактирование в vimdiff и, сравнивая значения в директивах, переносим необходимые из конфига nginx.conf в angie.conf. Отсутствующие директивы и блоки также переносим, предварительно
     сверившись с документацией angie и убедившись в том, что переносимые директивы поддерживаются.
