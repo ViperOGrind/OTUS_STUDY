@@ -122,7 +122,7 @@
     
     ![ANGIE brotli start success](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_module-brotli_launch_success.png)
     
-11. Производим предварительную проверку работоспособности ANGIE с полученной конфигурацией.
+11. Производим предварительную проверку работоспособности ANGIE с полученной конфигурацией. Устраняем выявленные ошибки.
     
     ![New ANGIE.CONF syntax check](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_test_error.png)
 
@@ -132,7 +132,7 @@
 
     ![New ANGIE.CONF syntax success](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_launch_success.png)
     
-12. Устраняем выявленные ошибки, если их нет - временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
+12. Временно указываем порт 8080 в конфигурации для обслуживаемых доменов с целью запуска ANGIE и проверки штатной работы опубликованных ресурсов.
     
     ![ANGIE check config and published web resources](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/4.%20Миграция%20с%20Nginx%20на%20Angie%20ДЗ/Artifacts/HOST/ANGIE_port_change_for_test.png)
 
