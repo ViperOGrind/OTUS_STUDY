@@ -45,7 +45,9 @@ ANGIE как веб-сервер
 
    ![INTERNAL_REDIRECT](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/5.%20Angie%20как%20веб-сервер/Artifacts/test5.study.local_internal_redirect.png)
 
-10. Проверяем страницу ошибки.
+   ![INTERNAL_REDIRECT](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/5.%20Angie%20как%20веб-сервер/Artifacts/test5.study.local_internal_redirect2.png)
+
+11. Проверяем страницу ошибки.
 
     ![404](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/5.%20Angie%20как%20веб-сервер/Artifacts/test5.study.local_error_page.png)
 
