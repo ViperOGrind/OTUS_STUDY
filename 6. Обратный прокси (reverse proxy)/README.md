@@ -27,7 +27,7 @@
 
 7. Написан следующий конфиг для Angie в качестве обратного прокси.
    
-   [ANGIE_RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/6.%20Обратный%20прокси%20(reverse%20proxy)/Artifacts/Angie_RP-conf.png)
+   ![ANGIE_RP](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/6.%20Обратный%20прокси%20(reverse%20proxy)/Artifacts/Angie_RP-conf.png)
 
 8. На проверочном хосте, в файле hosts сделана запись вида: 10.254.254.124 wrdprs.study.local, переходим в браузере по соответствующему FQDN.
 
