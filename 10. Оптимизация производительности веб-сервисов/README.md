@@ -55,6 +55,6 @@
 
    Подключаем модуль Brotli для поддержки эффективного сжатия:
    
-  **load_module modules/ngx_http_brotli_filter_module.so;**
+      **load_module modules/ngx_http_brotli_filter_module.so;**
    
-  **load_module modules/ngx_http_brotli_static_module.so;**
+      **load_module modules/ngx_http_brotli_static_module.so;**
