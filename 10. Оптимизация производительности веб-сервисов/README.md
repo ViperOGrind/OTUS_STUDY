@@ -55,6 +55,12 @@
 
    Подключаем модуль Brotli для поддержки эффективного сжатия:
    
-      **load_module modules/ngx_http_brotli_filter_module.so;**
+    **load_module modules/ngx_http_brotli_filter_module.so;**
    
-      **load_module modules/ngx_http_brotli_static_module.so;**
+    **load_module modules/ngx_http_brotli_static_module.so;**
+
+   Ограничиваем количество соединений для воркеров, т.к. на сервере доступно 4 Gb RAM:
+
+    **worker_connections  8192;**
+
+   
