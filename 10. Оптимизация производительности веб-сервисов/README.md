@@ -81,7 +81,7 @@
 
    н) Директива **keepalive 32;** - задает кэш соединений для группы серверов, устанавливая максимальное число неактивных постоянных соединений, которые будут сохраняться в кэше каждого рабочего процесса. При превышении этого числа - наиболее старые давно неиспользуемые соединения закрываются.
 
-6. Настроим системные лимиты:
+6. Настроены системные лимиты:
 
    [SYSCTL.CONF](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/sysctl.conf)
 
@@ -168,6 +168,7 @@
    в) Ограничение поддерживаемых SSL протоколов: **ssl_protocols TLSv1.2 TLSv1.3;**,
 
    г) Ограничение поддерживаемых SSL шифров: **ssl_ciphers 'ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384';**,
+   
 
    д) Кэш SSL сессии: **ssl_session_cache shared:SSL:10m;**,
 
@@ -178,8 +179,9 @@
    з) Настроена проверка OCSP: **ssl_stapling on;** **ssl_stapling_verify on;**,
 
    и) Спрятаны заголовки сервера (вместо параметров в заголовках сервера устанавливаются заголовки прокси): 
-   
-  **proxy_hide_header X-Powered-By;
+
+```
+    proxy_hide_header X-Powered-By;
   
     proxy_hide_header Strict-Transport-Security;
     
@@ -191,11 +193,13 @@
     
     proxy_hide_header Referrer-Policy;
     
-    proxy_hide_header Content-Security-Policy;**
+    proxy_hide_header Content-Security-Policy;
+```
 
   к) Установлены следующие заголови:
 
-  **add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+```
+    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
   
     add_header X-Frame-Options "SAMEORIGIN" always;
     
@@ -223,11 +227,13 @@
         
         frame-ancestors 'self';
         
-        form-action 'self';";**
+        form-action 'self';";
+```
 
    л) Настроено сжатие Brotli (в случае отсутствия поддержки Brotli в браузере будет использоваться Gzip):
 
-  **brotli on;                   # enable Brotli
+```
+    brotli on;                   # enable Brotli
   
     brotli_static on;            # serve pre-compressed files if exist
     
@@ -265,11 +271,13 @@
         
         image/webp
         
-        image/bmp;**
+        image/bmp;
+```
 
   м) Сжатие Gzip:
 
-  **gzip on;				# enable gzip
+```
+    gzip on;				# enable gzip
   
     gzip_static on;			# serve pre-compressed files if exist
     
@@ -307,32 +315,33 @@
         
         font/ttf
         
-        font/otf;**
-
+        font/otf;
+```
 
   н) Оптимизация буферов для проксирования:
 
-  **proxy_buffer_size 16k;
+    proxy_buffer_size 16k;
   
     proxy_buffers 4 32k;
     
     proxy_busy_buffers_size 64k;
     
-    proxy_temp_file_write_size 64k;**
+    proxy_temp_file_write_size 64k;
 
  о) Оптимизация прокси таймаутов:
 
-  **proxy_connect_timeout 90;
+    proxy_connect_timeout 90;
   
     proxy_send_timeout 90;
     
     proxy_read_timeout 90;
     
-    send_timeout 90;**
+    send_timeout 90;
 
  п) Рут локейшн с настройкам кэша:
 
- **location / {
+```
+   location / {
         proxy_pass https://wordpress_backend$request_uri;                                      # set proxy_pass to backend upstream for location
         
         proxy_cache wordpress_cache;                                                           # set cache zone for location
@@ -351,11 +360,13 @@
         
         proxy_cache_methods GET HEAD;                                                          # set cache for GET and HEAD methods
         
-    }**
+    }
+```
 
 р) Кэширование статических файлов:
 
-**location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2)$ {
+```
+  location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2)$ {
         proxy_pass https://wordpress_backend$request_uri;                                      # set proxy_pass to backend upstream for location
         
         expires 365d;                                                                          # set cache expiration for static files
@@ -368,29 +379,31 @@
         
         proxy_cache_valid 200 302 365d;                                                        # set cache valid time for 200 and 302
         
-    }**
+    }
+```
 
 с) Отключение логирования для favicon.ico и robots.txt:
 
-**location = /favicon.ico {
+```
+    location = /favicon.ico {
 
         log_not_found off;
         
         access_log off;
         
-    }**
+    }
 
-**location = /robots.txt {
+    location = /robots.txt {
 
         log_not_found off;
         
         access_log off;
         
-    }**
+    }
 
 т) Запрет доступа к скрытым директориям:
 
-**location ~ /\. {
+    location ~ /\. {
 
         deny all;
         
@@ -398,11 +411,13 @@
         
         log_not_found off;
         
-    }**
+    }
+```
 
 13. Конфигурация Wrodpress для Apache2:
 
-**# Disable server signature
+```
+\# Disable server signature
 
 ServerSignature Off
 
@@ -453,7 +468,8 @@ ServerTokens Prod
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
     
     
-</VirtualHost>**
+</VirtualHost>
+```
 
  14. Скриншот работающего сайта:
 
