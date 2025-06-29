@@ -475,8 +475,8 @@ ServerTokens Prod
 
  14. Скриншот работающего сайта:
 
-     [wordpress.study.local](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Wordpress.png)
+     ![wordpress.study.local](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Wordpress.png)
 
  15. Скриншот console light с кэшированием:
 
-     [angie.study.local/console/](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Console_status.png)
+     ![angie.study.local/console/](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Console_status.png)
