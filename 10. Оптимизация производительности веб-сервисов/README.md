@@ -480,3 +480,7 @@ ServerTokens Prod
  15. Скриншот console light с кэшированием:
 
      ![angie.study.local/console/](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Console_status.png)
+
+16. Проверка оптимизации плагином Lighthouse:
+
+    ![Lighthouse](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Lighthouse.png)
