@@ -114,15 +114,22 @@
    [MPM_EVENT.CONF](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/mpm_event.conf)
 
    **StartServers             2**
+
    **MinSpareThreads         25**
+   
    **MaxSpareThreads         75**
+   
    **ThreadLimit             32**
+   
    **ThreadsPerChild         32**
+   
    **MaxRequestWorkers      128**
+   
    **MaxConnectionsPerChild  10000**
+   
    **ServerLimit             4**
 
-10. Настраиваем ограничение использования ядер процессора и оперативной памяти для сервиса MariaDB:
+11. Настраиваем ограничение использования ядер процессора и оперативной памяти для сервиса MariaDB:
 
    [MARIADB.SERVICE](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/mariadb.service)
 
@@ -173,171 +180,278 @@
    и) Спрятаны заголовки сервера (вместо параметров в заголовках сервера устанавливаются заголовки прокси): 
    
   **proxy_hide_header X-Powered-By;
+  
     proxy_hide_header Strict-Transport-Security;
+    
     proxy_hide_header X-Frame-Options;
+    
     proxy_hide_header X-Content-Type-Options;
+    
     proxy_hide_header X-XSS-Protection;
+    
     proxy_hide_header Referrer-Policy;
+    
     proxy_hide_header Content-Security-Policy;**
 
   к) Установлены следующие заголови:
 
   **add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+  
     add_header X-Frame-Options "SAMEORIGIN" always;
+    
     add_header X-Content-Type-Options "nosniff" always;
+    
     add_header X-XSS-Protection "1; mode=block" always;
+    
     add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    
     add_header Content-Security-Policy "default-src 'self' https://wordpress.study.local;
+    
         script-src 'self' 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' 'inline-speculation-rules' https://wordpress.study.local;
+        
         worker-src 'self' blob: https://wordpress.study.local;
+        
         style-src 'unsafe-inline' https://wordpress.study.local;
+        
         img-src 'unsafe-inline' data: blob: https://wordpress.study.local https://secure.gravatar.com https://ps.w.org;
+        
         font-src 'unsafe-inline' data: https://wordpress.study.local;
+        
         connect-src 'self' *.study.local;
+        
         frame-src 'self' blob:;
+        
         frame-ancestors 'self';
+        
         form-action 'self';";**
 
    л) Настроено сжатие Brotli (в случае отсутствия поддержки Brotli в браузере будет использоваться Gzip):
 
   **brotli on;                   # enable Brotli
+  
     brotli_static on;            # serve pre-compressed files if exist
+    
     brotli_comp_level 4;		   # compression level
+    
     brotli_types 			         # compression mime types
+    
         text/plain 
+        
         text/css 
+        
         text/javascript 
+        
         application/javascript 
+        
         application/x-javascript 
+        
         application/json 
+        
         application/xml 
+        
         application/xml+rss 
+        
         text/xml 
+        
         image/svg+xml
+        
         font/woff
+        
         font/woff2
+        
         font/ttf
+        
         font/otf
+        
         image/webp
+        
         image/bmp;**
 
   м) Сжатие Gzip:
 
   **gzip on;				# enable gzip
+  
     gzip_static on;			# serve pre-compressed files if exist
+    
     gzip_vary on;			# allow Header Vary: Accept-Encoding
+    
     gzip_proxied any;			# allow all proxied requests to be gzipped
+    
     gzip_comp_level 4;			# compression level
+    
     gzip_types 
+    
         text/plain
+        
         text/css
+        
         text/javascript
+        
         application/javascript
+        
         application/x-javascript  
+        
         application/json 
+        
         application/xml
+        
         application/xml+rss
+
         text/xml
+        
         image/svg+xml
+        
         font/woff
+        
         font/woff2
+        
         font/ttf
+        
         font/otf;**
 
 
   н) Оптимизация буферов для проксирования:
 
   **proxy_buffer_size 16k;
+  
     proxy_buffers 4 32k;
+    
     proxy_busy_buffers_size 64k;
+    
     proxy_temp_file_write_size 64k;**
 
  о) Оптимизация прокси таймаутов:
 
   **proxy_connect_timeout 90;
+  
     proxy_send_timeout 90;
+    
     proxy_read_timeout 90;
+    
     send_timeout 90;**
 
  п) Рут локейшн с настройкам кэша:
 
  **location / {
         proxy_pass https://wordpress_backend$request_uri;                                      # set proxy_pass to backend upstream for location
+        
         proxy_cache wordpress_cache;                                                           # set cache zone for location
+        
         proxy_cache_bypass $http_cache_control;                                                # set cache bypass for location
+        
         proxy_no_cache $http_cache_control;                                                    # set no cache
+        
         proxy_cache_revalidate on;                                                             # enable cache revalidate
+        
         proxy_cache_lock on;                                                                   # enable cache lock
+        
         proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;      # set cache stale for 50x error pages
+        
         proxy_cache_background_update on;                                                      # enable cache background upgrade
+        
         proxy_cache_methods GET HEAD;                                                          # set cache for GET and HEAD methods
+        
     }**
 
 р) Кэширование статических файлов:
 
 **location ~* \.(jpg|jpeg|png|gif|ico|css|js|svg|woff|woff2)$ {
         proxy_pass https://wordpress_backend$request_uri;                                      # set proxy_pass to backend upstream for location
+        
         expires 365d;                                                                          # set cache expiration for static files
+        
         add_header Cache-Control "public, no-transform";                                       # set Cache-Control header
+        
         access_log off;                                                                        # disable access log for static files
+        
         proxy_cache wordpress_cache;                                                           # set cache zone for location
+        
         proxy_cache_valid 200 302 365d;                                                        # set cache valid time for 200 and 302
+        
     }**
 
 с) Отключение логирования для favicon.ico и robots.txt:
 
 **location = /favicon.ico {
+
         log_not_found off;
+        
         access_log off;
+        
     }**
 
 **location = /robots.txt {
+
         log_not_found off;
+        
         access_log off;
+        
     }**
 
 т) Запрет доступа к скрытым директориям:
 
 **location ~ /\. {
+
         deny all;
+        
         access_log off;
+        
         log_not_found off;
+        
     }**
 
 13. Конфигурация Wrodpress для Apache2:
 
 **# Disable server signature
+
 ServerSignature Off
+
 ServerTokens Prod
 
 <VirtualHost 127.0.0.1:1443>
+
     ServerName wordpress.study.local
+    
     ServerAlias www.wordpress.study.local
     
     DocumentRoot /var/www/wordpress
     
     SSLEngine on
+    
     SSLCertificateFile /etc/ssl/angie/.ssl/wordpress.study.local/wildcard.study.local.crt
+    
     SSLCertificateKeyFile /etc/ssl/angie/.ssl/wordpress.study.local/wildcard.study.local.key
     
     <Directory /var/www/wordpress>
+    
         Options FollowSymLinks
+        
         AllowOverride All
+        
         Require all granted
+        
     </Directory>
     
     <FilesMatch "\.php$">
+    
         SetHandler "proxy:unix:/run/php/php8.3-fpm-wordpress.sock|fcgi://localhost"
+        
     </FilesMatch>
     
     ErrorLog ${APACHE_LOG_DIR}/wordpress_error.log
+    
     CustomLog ${APACHE_LOG_DIR}/wordpress_access.log combined
     
     # Security Headers
+    
     Header always set X-Content-Type-Options "nosniff"
+    
     Header always set X-Frame-Options "SAMEORIGIN"
+    
     Header always set X-XSS-Protection "1; mode=block"
+    
     Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
     
 </VirtualHost>**
 
