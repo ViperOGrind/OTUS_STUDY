@@ -20,7 +20,9 @@
    
 4. Произведена настройка сетевого стека ОС
 
-   ![NETWORK](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/sysctl.conf)
+   ```
+   [NETWORK](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/sysctl.conf)
+   ```
 
    а) Установлен параметр **net.ipv4.tcp_slow_start_after_idle = 0** для оптимизации скорости ответа сервера,
    
