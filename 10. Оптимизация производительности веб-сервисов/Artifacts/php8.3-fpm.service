@@ -1,0 +1,16 @@
+[Unit]
+Description=The PHP 8.3 FastCGI Process Manager
+Documentation=man:php-fpm8.3(8)
+After=network.target
+
+[Service]
+Type=notify
+ExecStart=/usr/sbin/php-fpm8.3 --nodaemonize --fpm-config /etc/php/8.3/fpm/php-fpm.conf
+ExecStartPost=-/usr/lib/php/php-fpm-socket-helper install /run/php/php-fpm.sock /etc/php/8.3/fpm/pool.d/www.conf 83
+ExecStopPost=-/usr/lib/php/php-fpm-socket-helper remove /run/php/php-fpm.sock /etc/php/8.3/fpm/pool.d/www.conf 83
+ExecReload=/bin/kill -USR2 $MAINPID
+CPUAffinity=3-5
+MemoryLimit=4G
+
+[Install]
+WantedBy=multi-user.target

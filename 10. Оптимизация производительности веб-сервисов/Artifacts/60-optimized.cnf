@@ -1,0 +1,14 @@
+[mysqld]
+### Thread Configuration (Single-Core Optimized)
+thread_handling = pool-of-threads
+thread_pool_size = 1               # Matches vCPU allocation
+thread_pool_max_threads = 100      # Reduced from 500
+
+### Buffer Pool (4GB total, 50% of 8GB RAM)
+innodb_buffer_pool_size = 1G
+innodb_buffer_pool_chunk_size = 128M
+
+### I/O Optimization (Single-Core Tuning)
+innodb_read_io_threads = 2         # Reduced from 4
+innodb_write_io_threads = 2        # Reduced from 4
+innodb_flush_method = O_DIRECT
