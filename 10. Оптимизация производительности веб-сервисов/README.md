@@ -484,3 +484,4 @@ ServerTokens Prod
 16. Проверка оптимизации плагином Lighthouse:
 
     ![Lighthouse](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/10.%20Оптимизация%20производительности%20веб-сервисов/Artifacts/Lighthouse.png)
+
