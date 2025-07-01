@@ -3,9 +3,9 @@
 Оптимизация производительности веб-сервисов
 
 **HOST**
-1. Используется VMWare Workstation для развёртывания ВМ.
+1. Используется корпоративное облако с изолированной инфраструктурой под демо стенд для развёртывания ВМ.
    
-2. Базовая ОС - Ubuntu 24.04 server minimized
+2. Базовая ОС для Reverse proxy/WAF1/Server - Ubuntu 24.04 server minimized + Angie 1.9.1, базовая ОС WAF2 - Debian 11 + Nginx 1.26,
    
 3. Базовая конфигурация ВМ reverse-proxy (х2):
 
@@ -15,49 +15,41 @@
    RAM: 4 Gb
 
    DISK: 20 Gb
-
-   NET: bridged 10.254.254.124/27
    ```
 
 4. Базовая конфигурация ВМ WAF1 (x2):
 
    ```
-   CPU:
+   CPU: 4 core
 
-   RAM:
+   RAM: 6 Gb
 
-   DISK:
-
-   NET:
+   DISK: 250 Gb
    ```
 
 5. Базовая конфигурация ВМ WAF2 (x2):
 
    ```
-   CPU:
+   CPU: 4 core
 
-   RAM:
+   RAM: 32 Gb
 
-   DISK:
-
-   NET:
+   DISK: 100 Gb
    ```
 
 6. Базовая конфигурация ВМ SRV01 (x1):
 
    ```
-   CPU:
+   CPU: 2 core
 
-   RAM:
+   RAM: 4 Gb
 
-   DISK:
-
-   NET:
+   DISK: 20 Gb
    ```
 
 7. MediaWiKi развернута в докер-контейнере (с использованием веб-панели управления средой контейнеризации Portainer),
    
-8. Выделено 2 домена для MediaWiKi (для реализации демо-стенда под каждый WAF),
+8. Выделено 2 домена для MediaWiKi (для реализации демо-стенда под каждый WAF): wiki-pt.df-lab.ru, wiki-wm.df-lab.ru,
     
 9. Для reverse-proxy и WAF собраны кластеры высокой доступности (HA на Keepalived с контролем работоспособности процесса Angie/Nginx),
     
