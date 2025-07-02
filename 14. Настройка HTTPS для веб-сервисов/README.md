@@ -59,6 +59,6 @@
 
 11. Терминирование SSL производится на Reverse proxy (конфигурация для обеих нод кластера высокой доступности одинаковая):
 
-    [ANGIE.CONF (RP)](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/14.%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20HTTPS%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%B1-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BE%D0%B2/Artifacts/angie_rp.conf)
+    [ANGIE.CONF (RP)](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/14.%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20HTTPS%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%B1-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BE%D0%B2/Artifacts/angie_rp.conf) [MEDIAWIKI.CONF (RP)](https://github.com/ViperOGrind/OTUS_STUDY/blob/main/14.%20%D0%9D%D0%B0%D1%81%D1%82%D1%80%D0%BE%D0%B9%D0%BA%D0%B0%20HTTPS%20%D0%B4%D0%BB%D1%8F%20%D0%B2%D0%B5%D0%B1-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%BE%D0%B2/Artifacts/mediawiki.conf)
 
 12. Резльтаты проверки с помощью общедоступного сервиса [Qalis SSL Labs](https://www.ssllabs.com/ssltest/analyze.html?d=wiki-pt.df-lab.ru)
