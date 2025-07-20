@@ -23,9 +23,9 @@
 
     map $http_user_agent $drop_conn {
    
-    default 0;
+        default 0;
    
-    ~*(Mozilla.+\s\(Windows.+\)\sAppleWebKit.+\sChrome.+) 1;
+        ~*(Mozilla.+\s\(Windows.+\)\sAppleWebKit.+\sChrome.+) 1;
    
     }
 
@@ -39,7 +39,7 @@
 
            if ($drop_conn = 0) {
    
-             return 444;
+               return 444;
    
            }
 
