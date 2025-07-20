@@ -20,7 +20,7 @@
    Используется свежая инсталляция от предыдущего ДЗ.
    
 4. Настроено ограничение по User-Agent для поддерживаемых браузеров:
-
+///
     map $http_user_agent $drop_conn {
    
         default 0;
@@ -28,7 +28,7 @@
         ~*(Mozilla.+\s\(Windows.+\)\sAppleWebKit.+\sChrome.+) 1;
    
     }
-
+///
 5. Настроены зоны limit_req_zone (для /wp-admin.php и /xmlrpc.php):
 
    limit_req_zone $binary_remote_addr zone=admin_req:10m rate=1r/s;                               # Request limit
